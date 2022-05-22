@@ -1,0 +1,31 @@
+\section{Material \& methods}
+\label{sec:3.2_methods}
+
+
+% 3.2.1
+% -----
+\subsection{Tissue and sample preparation}
+\label{sec:3M_prep}
+Rat pancreas was prepared as follows: fresh pancreas was cut from an \SI{83}{day} old rat into small pieces and fixed in 4\% paraformaldehyde (PFA; Merck) + 0.1\% glutaraldehyde (GA; Polysciences) as described in \textcite{ravelli2013destruction}. A complete zebrafish larva (\SI{120}{hpf}) was fixed in 2\% PFA + 2\% GA. Both samples were post-fixed in 1\% osmium tetroxide and 1.5\% potassium ferricyanide in \SI{0.1}{M} cacodylate buffer, dehydrated through ethanol and embedded in EPON (Serva). \SI{100}{\nano\meter} serial sections were cut and placed onto formvar-covered ITO-coated glass coverslips (Optics Balzers). Immunolabeling was performed as described previously \cite{kuipers2015scanning}. Samples were etched with 1\% periodic acid for \SI{10}{\minute}, followed by a \SI{30}{\minute} blocking step: 1\% bovine serum albumin (BSA; Sanquin, Netherlands) in tris-buffered saline (TBS), pH 7.4. Next, anti-insulin was incubated for \SI{2}{\hour} (guinea pig; 1:50, Invitrogen, PA1-26938, RRID: AB\_794668, for rat pancreas and anti-insulin; 1:100, Abcam, ab210560, for zebrafish pancreas), followed by washing and subsequent incubation for \SI{1}{\hour} with biotinylated secondary antibody (donkey-anti-guinea pig; 1:400, Jackson Immunoresearch, for rat pancreas and goat-anti-rabbit; 1:400, Dako, for zebrafish pancreas) followed by washing steps. Finally, streptavidin conjugated AF594 (1:100, Jackson Immunoresearch, for rat pancreas) and streptavidin conjugated TRITC (1:100, Jackson Immunoresearch, for zebrafish pancreas) were added for \SI{1}{\hour} followed by washing.
+
+
+% 3.2.2
+% -----
+\subsection{Digital light microscopy}
+\label{sec:3M_keyence}
+The sections, after being placed on the ITO-coated glass slide, are imaged at \SI{30}{X} magnification (${\sim}$\SI{7}{\micro\meter\per\pixel}) using a VHX-6000 digital light microscope (Keyence) operating in reflection mode. To capture every section on the \SI{22}{\milli\meter} $\times$ \SI{22}{\milli\meter} ITO-coated glass slide, a 3 $\times$ 3 grid of RGB images is acquired and automatically stitched together.
+
+
+% 3.2.3
+% -----
+\subsection{Integrated microscopy}
+\label{sec:3M_integrated}
+The integrated microscope is a widefield SECOM fluorescence microscope (Delmic B.V.) retrofitted into the vacuum chamber of a Verios 460 SEM (Thermo Fisher Scientific) \cite{liv2013simultaneous, zonnevylle2013integration}. The microscopes share a common optical axis, translation stage, and control software. FM images are obtained with \SI{10}{\second} exposures, recorded by a Zyla 4.2 sCMOS camera (Andor - Oxford Instruments). Excitation wavelengths of \SI{405}{\nano\meter} and \SI{555}{\nano\meter} are used to excite Hoechst and AF594. The SECOM is equipped with a CFI S Plan Fluor ELWD 60XC (\SI{0.70}{NA}) objective (Nikon), which allows for long working distance imaging (\SIrange{1.8}{2.6}{\milli\meter}), to prevent electrical breakdown in vacuum, which must be accounted for due to the presence of high electric fields induced by the stage bias \cite{vos2021retarding}.
+
+SEM imaging is conducted in two rounds: (1) low-magnification (\SI{38}{\nano\meter\per\pixel}) scans accompanying each fluorescent acquisition; (2) high-magnification (\SI{5}{\nano\meter\per\pixel}) acquisitions on ROI identified by fluorescence expression. Both low and high magnification imaging are performed at \SI{2.5}{\kilo\electronvolt} primary beam energy with a \SI{-1}{\kilo\volt} bias potential applied to the sample stage such that the landing energy is \SI{1.5}{\kilo\electronvolt}, which proved optimal for ${\sim}$\SI{100}{\nano\meter} sections. The negative potential bias enhances the backscattered electron (BSE) signal, which is collected by the insertable concentric backscattered detector (Thermo Fisher Scientific) \cite{lane2021optimization}.
+
+
+% 3.2.4
+% -----
+\subsection{Alignment and reconstruction software}
+Image data from the integrated microscope is uploaded to a local storage server running an instance of render-ws,\footnote{\href{https://github.com/saalfeldlab/render}{https://github.com/saalfeldlab/render}} a collection of open-source web services for rendering transformed image tiles. The tiles and their respective metadata are organized into stacks, configured as MongoDB databases. The alignment routines are arranged in a series of Jupyter notebooks,\footnote{\href{https://github.com/hoogenboom-group/iCAT-workflow}{https://github.com/hoogenboom-group/iCAT-workflow}} which parse the image metadata for the EM-FM overlay as well as make calls to render-ws via a python wrapper (render-python\footnote{\href{https://github.com/AllenInstitute/render-python}{https://github.com/AllenInstitute/render-python}}). EM image stitching and volume alignment are based on the scale-invariant feature transform (SIFT)---an algorithm designed to detect and match local features in corresponding images \cite{lowe1999object}. SIFT features are stored in render-ws databases where they can be processed by BigFeta,\footnote{\href{https://github.com/AllenInstitute/BigFeta}{https://github.com/AllenInstitute/BigFeta}} a linear least squares solver for scalable 2D and 3D image alignment based on point correspondences. CLEM datasets are ultimately exported to CATMAID \cite{saalfeld2009catmaid} for google-maps-like visualization. 3D visualizations are done in Fiji \cite{schindelin2012fiji} using the Volume Viewer plugin.\footnote{\href{https://imagej.net/plugins/volume-viewer}{https://imagej.net/plugins/volume-viewer}}
