@@ -1,19 +1,33 @@
-\chapter{Label-free fluorescence predictions from large-scale correlative light and electron microscopy data}
+\chapter[Label-free fluorescence predictions]{Label-free fluorescence predictions from large-scale correlative light and electron microscopy data}
 \label{chap:4}
-\begin{refsection}
 
 % Abstract
-\section*{Abstract}
-\begin{small}
-    TBD\ldots
-\end{small}
+\begin{abstract}
+    Electron microscopy (EM) provides high-resolution images of (sub-)cellular ultrastructure. Identifying particular organelles or proteins of interest from EM images alone, however, is often a challenge.
+    Deep learning-based approaches have rapidly been adopted within biological EM to perform structural recognition tasks, such as organelle segmentation, due to their strength in pattern inference and analyzing visual imagery.
+    Such approaches require large training datasets, typically at the expense of hundreds of hours of human annotation.
+    As an alternative means of providing biological labels to EM datasets, we developed CLEMnet, a deep convolutional neural network that has been trained on large-scale ({$\sim$}\SI{16}{GB}) correlative light and electron microscopy (CLEM) data. 
+    % These datasets have been compiled via integrated array tomography such that manual annotation and segmentation has been removed from the workflow.
+    CLEMnet predictions generated on EM images unseen by the network are highly correlated with the measured fluorescence signal.
+    We additionally assess the feasibility of the correlative fluorescence data and network-generated predictions as training masks for organelle segmentation.
+\end{abstract}
 
-% % Sections
-% \input{chapter-4/sec-1_intro}
-% \input{chapter-4/sec-2_results}
-% \input{chapter-4/sec-3_discussion}
+\blfootnote{This chapter is in preparation for a manuscript to be submitted for publication: \fullcite{lane2022label}.}
+\clearpage
+
+% Sections
+\input{chapter-4/sec-1_intro}
+\input{chapter-4/sec-2_results}
+\input{chapter-4/sec-3_discussion}
 \input{chapter-4/sec-4_methods}
+\input{chapter-4/sec-A_supp}
+
+% TODO:
+%  finalize in preparation statement
+%  check for all instances of HeLa cells --> should be tumor cells
+%  abstract
+%  methods section for segmentation
+%  add references
 
 % References
 \printbibliography[title={References}]
-\end{refsection}

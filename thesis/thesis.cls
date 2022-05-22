@@ -53,7 +53,9 @@
 
 \RequirePackage[nooneline,
                 small,
-                figurename=Figure]{caption}
+                figurename=Figure,
+                labelfont=bf,
+                labelsep=period]{caption}
 \RequirePackage{fancyhdr}
 \RequirePackage[flushmargin,hang]{footmisc}
 % \RequirePackage{parskip}
@@ -81,77 +83,71 @@
 \RequirePackage{booktabs}
 
 
+
 % Set fonts
 \setmainfont[
-    Path = fonts/SourceSerifPro/,
-    Extension = .otf,
-    BoldFont = *-Bold,
-    ItalicFont = *-Italic,
-    BoldItalicFont = *-BoldItalic
+    Path=fonts/SourceSerifPro/,
+    Extension=.otf,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic
 ]{SourceSerifPro}
 \setsansfont[
-    Path = fonts/FiraSans/,
-    Extension = .otf,
-    BoldFont = *-Bold,
-    ItalicFont = *-Italic,
-    BoldItalicFont = *-BoldItalic
+    Path=fonts/FiraSans/,
+    Extension=.otf,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic
 ]{FiraSans}
 \setmonofont[
-    Path = fonts/Inconsolata/,
-    Extension = .otf,
+    Path=fonts/Inconsolata/,
+    Extension=.otf,
 ]{Inconsolata}
 \setmathfont[
-    Path = fonts/TexGyrePagella/,
-    Extension = .otf
+    Path=fonts/TexGyrePagella/,
+    Extension=.otf
 ]{TexGyrePagella-math}
-
-
 
 % Create some custom font families
 \newfontfamily\ThesisTitleFamily[
-    Path = fonts/FiraSans/,
-    Extension = .otf,
-    BoldFont = *-Bold,
-    ItalicFont = *-Italic,
-    BoldItalicFont = *-BoldItalic
+    Path=fonts/FiraSans/,
+    Extension=.otf,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic
 ]{FiraSans}
 \newfontfamily\ThesisSerifFamily[
-    Path = fonts/SourceSerifPro/,
-    Extension = .otf,
-    BoldFont = *-Bold,
-    ItalicFont = *-Italic,
-    BoldItalicFont = *-BoldItalic
+    Path=fonts/SourceSerifPro/,
+    Extension=.otf,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic
 ]{SourceSerifPro}
 \newfontfamily\ThesisSansFamily[
-    Path = fonts/FiraSans/,
-    Extension = .otf,
-    BoldFont = *-Bold,
-    ItalicFont = *-Italic,
-    BoldItalicFont = *-BoldItalic
+    Path=fonts/FiraSans/,
+    Extension=.otf,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic
 ]{FiraSans}
 
 
-% The style for titles is small caps.
-\def\titlefont{\rmfamily}
-\def\titleshape{\scshape}
-\def\titlestyle{\titlefont\titleshape\bfseries}
-\if@print
-    \def\headerstyle{\titlefont\titleshape\bfseries}
-\else
-    \def\headerstyle{\titlefont\titleshape}
-\fi
+
 
 % Set title, chapter, section, header styles
 \renewcommand*\familydefault{\rmdefault}
 \def\titlefont{\ThesisSansFamily}
 \def\largetitlefont{\ThesisTitleFamily}
-\def\titleshape{}
+% \def\titleshape{}
+\def\titleshape{\scshape}  % style for titles is small caps.
 \def\largetitleshape{\titleshape}
 \def\largetitleseries{}
 \def\largetitlestyle{\largetitlefont\largetitleseries\largetitleshape}
 \def\chaptitlefamily{\ThesisSansFamily}
-\def\titlestyle{\titlefont\titleshape}
-\def\sectitlestyle{\ThesisSansFamily\titleshape\bfseries}
+\def\titlestyle{\titlefont\titleshape\bfseries}
+% \def\titlestyle{\titlefont\titleshape}
+% \def\sectitlestyle{\ThesisSansFamily\titleshape\bfseries}
+\def\sectitlestyle{\ThesisSansFamily\bfseries}
 \def\chaptitlestyle{\chaptitlefamily}
 \def\headerstyle{\titlestyle}
 
@@ -296,20 +292,32 @@
 % Subsubsections have the same font and color as sections and subsections, but
 % are not preceded by a number.
 \titleformat{\subsubsection}
-    {\headerstyle\sectitlestyle}
+    {\normalsize\sectitlestyle}
     {\bfseries\thesubsubsection.\ }
     {0pt}
     {\color{title}}
 \titlespacing{\subsubsection}{0pt}{\baselineskip}{2pt}
 % Subsubsections are preceded by an empty line and do not appear in the table
 % of contents.
-\titlespacing{\subsubsection}{0pt}{\bigskipamount}{0pt}
 
 
-% Create a new header style (effectively a sub-sub-sub-section,
-% based on \paragraph)
+% Some custom environments
+% ------------------------
+% Create a new header style (effectively a sub-sub-sub-section, based on \paragraph)
 \newcommand{\header}[1]{\paragraph{#1}\mbox{}\\}
 
+% Define an unnumbered footnote command
+\def\blfootnote{\xdef\@thefnmark{}\@footnotetext}
+
+% The abstract environment is used for the abstract of a chapter.
+\newenvironment{abstract}{%
+    \list{}{\leftmargin\rightmargin}%
+    \item%
+    \relax%
+    \rmfamily\small%
+}{%
+    \endlist%
+}
 
 % Color the bullets of the itemize environment and make the symbol
 % of the third level a diamond instead of an asterisk.
@@ -319,7 +327,7 @@
 \renewcommand*\labelitemiv{\color{title}\textperiodcentered}
 
 
-% %% Hyperlinks are cyan, except in print mode, when they are all black.
+% % Hyperlinks are cyan, except in print mode, when they are all black.
 % \hypersetup{
 %     colorlinks=true,
 %     citecolor=title,

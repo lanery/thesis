@@ -19,6 +19,7 @@
 \usepackage[
     backend=biber,
     style=numeric,
+    refsection=chapter,
     sorting=none,
     maxcitenames=2,
     mincitenames=1,
@@ -34,13 +35,12 @@
 \addbibresource{cppendix-A/appendix-A.bib}
 
 
-
 % THE BEGINNING
 % -------------
 \begin{document}
 
 % Some useful commands
-\newcommand{\needref}{[\textbf{\textcolor{red}{*REFERENCES*}}]}
+\newcommand{\needref}{[\textit{\textcolor{orange}{references}}]}
 
 % SI formatting options
 \sisetup{
@@ -58,21 +58,18 @@
 
 % De even better stuff
 % --------------------
-% Use Roman numerals for the page numbers of the title pages and table of
-% contents.
-\frontmatter
-% \maketitle
+\frontmatter  % Roman numerals for early page numbers
+% \input{propositions}
 \include{title/title}
-\input{propositions}
 \tableofcontents
+\include{summary}
 
 % De bestest stuff
 % ----------------
-% Use Arabic numerals for the page numbers of the chapters.
-\mainmatter
+\mainmatter  % switch to Arabic numerals for the page numbers
 \input{chapter-1/chapter-1}  % intro
 % \input{chapter-2/chapter-2}  % stage bias
-% \input{chapter-3/chapter-3}  % iCAT
+\input{chapter-3/chapter-3}  % iCAT
 % \input{chapter-4/chapter-4}  % CLEMnet
 % \input{chapter-5/chapter-5}  % conclusion
 % \input{cppendix-A/appendix-A} % FM autofocus
@@ -84,6 +81,9 @@
 
 % TODO:
 %   Alternate (short-form) chapter titles
+%   Add a splash of color
+%   Figure out "parts of this chapter" footnotes
+%   Section as appendix at end of each chapter
 
 
 \end{document}
