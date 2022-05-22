@@ -11,7 +11,7 @@ Pancreas tissue was prepared for integrated fluorescence-electron microscopy as 
 
 % Figure 2.1 (setup)
 % -----------------
-\begin{figure}[!tbh]
+\begin{figure}[!tb]
     \centering
     \includegraphics[width=\linewidth]{chapter-2/figures_JPEG_LQ/fig2-1_setup.jpg}
     \caption{Negative bias potential significantly enhances EM contrast in tissue. Schematic of integrated microscope without (A) and with (B) an applied stage bias. Electric field induced by the bias potential accelerates electrons emitted from the sample to the CBS detector. EM images of rat pancreas tissue without (C -- F) and with (G \& inset H) the use of stage bias. Biased images (G \& inset H) were acquired at \SI{2.5}{\kilo\electronvolt} primary energy with a \SI{-1}{\kilo\volt} bias potential---hence, a \SI{1.5}{\kilo\electronvolt} landing energy. For the sake of comparison, unbiased images (C \& inset D) were acquired with the same landing energy, while unbiased images (E \& inset F) were acquired with the same primary energy. The per-pixel dwell is held constant across all images at \SI{5}{\micro\second}. Vast improvement in EM signal and contrast can be seen by comparing insets (D \& F) with (H). Scale bars: \SI{2}{\micro\meter} (C, E, \& G); \SI{0.5}{\micro\meter} (D, F, \& H). Raw data at full resolution is available at \href{www.nanotomy.org}{Nanotomy}.}
@@ -25,7 +25,7 @@ Pancreas tissue was prepared for integrated fluorescence-electron microscopy as 
 
 % Figure 2.2 (simulations)
 % ------------------------
-\begin{figure}[!tbh]
+\begin{figure}[!tb]
     \centering
     \includegraphics[width=0.85\linewidth]{chapter-2/figures_JPEG_LQ/fig2-2_simulations.jpg}
     \caption{Signal electron trajectories demonstrate the efficacy of stage bias in redirecting BSEs to the detector while simultaneously filtering out secondary electrons. Trajectory plots for SE and BSE bundles launched from the sample plane (left) and scatter plots (right) show the spatial distribution of signal electrons at the detector plane. In HR-mode, SEs and BSEs travel in overlapping, linear paths without the presence of an electric field (A), but BSEs get accelerated towards the detector when a negative bias potential is introduced (B). Signal electrons take on spiral trajectories in the presence of an immersion magnetic field (C), but are again steered to the detector when an electric field is added (D). In each set of simulations, BSEs (blue) and SEs (orange) are launched from the sample plane at $z =$ \SI{5}{\milli\meter}. Trajectory plots show geometry of the pole piece (grey), CBS detector (blue), and stage plate (red). Scatter plots show $x, y$ coordinates of signal electrons at the detector plane ($z =$ \SI{5}{\milli\meter}). Spatial distributions of signal electrons are plotted on the margins of the scatter plots.}
@@ -49,7 +49,7 @@ EM imaging was expanded to encompass a wider imaging parameter space across a se
 
 % Figure 2.3 (matrices)
 % ---------------------
-\begin{figure}[!tbh]
+\begin{figure}[!tb]
     \centering
     \includegraphics[width=\linewidth]{chapter-2/figures_JPEG_LQ/fig2-3_matrices.jpg}
     \caption{Negative bias potential delivers 5--20 times faster imaging while maintaining image quality. Bias potential varies from \SIrange[range-phrase=\text{ to }]{0}{-3}{\kilo\volt} (left to right) while the integration time varies from \SIrange[range-phrase=\text{ to }]{1}{20}{\micro\second} (top to bottom) for both the non-immersion (top) and immersion mode (bottom) image matrices. All images acquired with \SI{1.5}{\kilo\electronvolt} landing energy to match penetration depth. Scale bars: \SI{1}{\micro\meter}. Raw data is available at \href{www.nanotomy.org}{Nanotomy}.}
@@ -62,7 +62,7 @@ Quantitative SNR measurements, based on the spectral signal-to-noise ratio (SSNR
 
 % Figure 2.4 (SNR)
 % ----------------
-\begin{figure}[!tbh]
+\begin{figure}[!tb]
     \centering
     \includegraphics[width=\linewidth]{chapter-2/figures_JPEG_LQ/fig2-4_snr.jpg}
     \caption{Optimization of bias potential delivers SNR increases of multiple orders of magnitude. At bias potentials greater than \SI{1.5}{\kilo\volt}, the SNR is found to level off for both imaging modes. Images are comprised of varying stage bias potentials, integration times, and imaging modes but with fixed \SI{1.5}{\kilo\electronvolt} landing energy and \SI{5}{\milli\meter} working distance. Different color lines represent different dwell times as indicated by the legend. SNR measurements are averaged over five EM images at different areas of the tissue for each combination of bias potential, dwell time, and imaging mode. Error bars indicate the standard deviation in the SNR over the five images. Missing data points indicate a negative SNR, which may occur for images with extremely high noise.}
@@ -72,7 +72,7 @@ Quantitative SNR measurements, based on the spectral signal-to-noise ratio (SSNR
 
 % Figure 2.5 (noise)
 % ------------------
-\begin{figure}[!tbh]
+\begin{figure}[!tb]
     \centering
     \includegraphics[width=\linewidth]{chapter-2/figures_JPEG_LQ/fig2-5_noise.jpg}
     \caption{Noise contributions suspected to originate from the scanning electronics are suppressed with increasing bias potential. Top: sequence of \SI{5}{\micro\second} dwell tissue images acquired in immersion mode with varying amounts of stage bias. Center: 2D FFTs of tissue images showing the central spot, which represents most of the signal, becoming more prominent with increasing bias potential up to \SI{-1.5}{\kilo\volt}. The 2D FFTs exhibit noticeable streak artefacts at higher frequencies, particularly in the lower bias potential images. We attribute these streaks to electric interference from the scanning electronics. Furthermore, there is a constant offset, which is likely a combination of shot noise from various sources, and may also include a component from the scanning electronics. Bottom: SSNR spectra show a division between the low frequency (primarily signal) and high frequency (primarily noise) portions of the tissue images. As the suspected scanning electronics noise is drowned out, the SNR improves dramatically. Scale bar: \SI{500}{\nano\meter}.}
@@ -88,7 +88,7 @@ Only small regions of interest are typically recorded at high resolution EM give
 
 % Figure 2.6 (cells)
 % ------------------
-\begin{figure}[!tbh]
+\begin{figure}[!tb]
     \centering
     \includegraphics[width=\linewidth]{chapter-2/figures_JPEG_LQ/fig2-6_cells.jpg}
     \caption{Fast, high resolution EM gigapixel image of cultured cells. (A) EM acquisition of a \SI{100}{\nano\meter} section of HeLa cells as a nanotomy map. Section imaged at \SI{1.5}{\kilo\electronvolt} LE and with a \SI{-1.5}{\kilo\volt} bias potential. For the sake of comparison, one HeLa cell was acquired at multiple energy settings: (B) \SI{1.5}{\kilo\electronvolt} LE with no bias potential; (C) \SI{3}{\kilo\electronvolt} LE with no bias potential; (D) \SI{1.5}{\kilo\electronvolt} LE with \SI{-1.5}{\kilo\volt} bias potential—identical to that of the large-scale acquisition. Scale bars: \SI{50}{\micro\meter} (A); \SI{5}{\micro\meter} (B, C, \& D). Raw data is available for viewing via \href{www.nanotomy.org}{Nanotomy}.}
@@ -99,7 +99,7 @@ To demonstrate the application of a negative bias potential on samples also prep
 
 % Figure 2.7 (rat)
 % ----------------
-\begin{figure}[!tbh]
+\begin{figure}[!tb]
     \centering
     \includegraphics[width=\linewidth]{chapter-2/figures_JPEG_LQ/fig2-7_rat.jpg}
     \caption{Fast, correlative imaging of a complete EM section at high resolution. \SI{80}{\nano\meter} rat pancreas tissue was imaged at \SI{3}{\kilo\electronvolt} beam energy with a \SI{-1.5}{\kilo\volt} stage bias (\SI{1.5}{\kilo\electronvolt} landing energy) with \SI{2}{\micro\second} dwell as a nanotomy map. (A) Composite two-channel FM image of the tissue section: cell nuclei (blue) stained by Hoechst; insulin-producing beta cells (orange) immunolabeled with Alexa 594. (B) Composite EM image of the area outlined in (A) comprising the islet of Langerhans identified via FM imaging. (C) Correlative overlay of the islet and surrounding exocrine tissue. (D) Zoomed-in area of islet outlined in (B \& C) with inset (E) exhibiting the native resolution (\SI{5}{\nano\meter} pixel size) that exists across the entirety of the nanotomy map. Total imaging time is \SI{8}{\hour}, the majority of which is taken up by the high-resolution EM imaging. Note that a similar area at this pixel size (see e.g. \textcite{ravelli2013destruction}) typically takes upwards of \SI{24}{\hour} with TEM. Scale bars: \SI{200}{\micro\meter} (A); \SI{100}{\micro\meter} (B \& C); \SI{10}{\micro\meter} (D); \SI{2}{\micro\meter} (E). Raw data is available via \href{www.nanotomy.org}{Nanotomy}.}
@@ -109,7 +109,7 @@ To demonstrate the application of a negative bias potential on samples also prep
 
 % Table 2.1 (timing)
 % ------------------
-\begin{table}[!tbh]
+\begin{table}[!tb]
     \centering
     \caption{Use of optimized potential bias leads to an 80\% reduction in total imaging time for a typical large-scale acquisition. The total imaging time is highly dependent on the ROI size, which may vary widely depending on the biological application. Here the typical diameter of an islet of Langerhans is given, while in Figure \ref{fig:2.7_rat} a \SI{700}{\micro\meter} $\times$ \SI{700}{\micro\meter} area was chosen as the ROI—resulting in the \SI{8}{\hour} total acquisition time. Total imaging times for arbitrary ROI sizes can be determined by first calculating the number of image tiles needed: $N=\text{ceil}\left((L-ow) - (w-ow)\right)^2$ where $L$ is the typical section or ROI width, $o$ is the percentage overlap between image tiles, and $w$ is the field of view. Note that the negative overlap given for the low-magnification CLEM tiles reflects that these tiles do not overlap with one another.}
     \footnotesize
