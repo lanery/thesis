@@ -1,0 +1,32 @@
+\clearpage
+\section{Discussion}
+\label{sec:4.3_discussion}
+
+We have demonstrated the ability of a CNN to artificially predict biological labels in electron microscopy images based on fluorescent training data. This has important ramifications for many areas within cell biology in which additional labelling techniques are implemented to facilitate recognition of structures in EM. 
+In order to generate fluorescence predictions, registered FM-EM image pairs are required to train the CNN. Although in this work, the accumulation of correlative datasets was facilitated by integrated CLEM, this is not pre-requisite. Conventional CLEM approaches in which a sample is imaged sequentially for light and electron microscopy is likely suitable. It is unknown, however, what effects might come about from the use of fiducial markers and potentially less precise image registration across large fields of view.
+
+While fluorescence predictions are not generalizable to arbitrary organelles outside of the training dataset, we have shown that the network is capable of transfer learning across cell types. Fluorescence predictions on HeLa cell nuclei were made after supplementing a training dataset comprised primarily of rat pancreas tissue with a limited amount of correlative data from HeLa cells. Aided by data augmentation, fluorescence predictions were furthermore found to be robust to changes in EM imaging parameters, additional shot noise, and sectioning artefacts.
+
+The predicted fluorescence labels fall short of providing adequate templates for fully automated segmentation. Nevertheless, we have shown that fluorescence labels are not only capable of facilitating annotation, but that as part of an image processing pipeline, they enable a framework for semi-automatic, weakly supervised segmentation. 
+It is difficult to imagine that a model for organelle segmentation trained on an automatically generated label could outperform the same model trained on manually segmented data, in the near future.
+% It is difficult to imagine that a segmentation model trained on an automatically generated label could outperform a model trained on manually segmented data in the near future.
+Even so, semi-automated and fully automated approaches may still fulfill a role in segmenting biological image data.
+For smaller-scale applications in which training datasets are still tractable, a segmentation model based on manually segmented organelles is likely the more sensible approach. But for larger-scale applications in which a pixel-perfect segmentation may not be strictly necessary [I don't know what these might be], a (semi-)automated labelling approach may offer valuable time-savings at the cost of precision.
+
+The deep CNN developed here offers a means to do fluorescent labelling of electron microscopy data at negligible cost with respect to time, effort, and money. Once the network has been sufficiently trained, fluorescence predictions can be automatically generated in seconds. This would allow [a preparer of samples] to process only a handful of sections for correlative fluorescence and electron microscopy, while preparing the rest of the sample for EM only. The entire EM volume could then be overlaid with fluorescence after training on the portion of the volume set aside for correlative imaging. [T cell example?]. Alternatively, this enables comparative studies of multiple samples imaged by EM such as \cite{de2020large} or [other references] to be given biological labels virtually for free, providing biological insight to a wealth of grayscale data. 
+By further supplementing existing correlative datasets with data from different organisms, cell types, and microscopes, robustness could be improved even further. This would enable [CLEMnet] to be used more generally at EM facilities worldwide.
+
+
+
+
+% \subsubsection{Other possible things to discuss}
+% \begin{itemize}[noitemsep]
+%     \item We have shown that AI-based predictions improves human recognition of organelles / AI-based fluorescence predictions were shown to improve human recognition of organelles.
+%     \begin{itemize}[noitemsep]
+%         \item based on this, it sort of made sense to try segmentation
+%         \item unique because no one else seems to be doing EM segmentation with multi-modal datasets
+%         \item could be improved with more robust nuclei detection and more training data
+%     \end{itemize}
+%     \item also makes possible doing more simultaneous labelling than would be feasible in a single sample due to constraints on filter sets and fluorescence microscope optics
+%     \item limited amount of fluorescence probes to begin with (e.g. mEosEM)
+% \end{itemize}

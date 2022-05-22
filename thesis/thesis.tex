@@ -1,0 +1,89 @@
+\documentclass{thesis}
+% \usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{blindtext}
+
+% SIunitx formatting
+% ------------------
+\usepackage{siunitx}
+\DeclareSIUnit\pixel{px}
+\DeclareSIUnit\mag{X}
+\DeclareSIUnit\NA{NA}
+\DeclareSIUnit\hour{hr}
+\DeclareSIUnit\molar{M}
+
+
+% Biblatex formatting
+% -------------------
+\usepackage[
+    backend=biber,
+    style=numeric,
+    sorting=none,
+    maxcitenames=2,
+    mincitenames=1,
+]{biblatex}
+\renewbibmacro{in:}{}  % https://tex.stackexchange.com/questions/10682/suppress-in-biblatex
+
+% Add bibresources for biblatex
+\addbibresource{chapter-1/chapter-1.bib}
+\addbibresource{chapter-2/chapter-2.bib}
+\addbibresource{chapter-3/chapter-3.bib}
+\addbibresource{chapter-4/chapter-4.bib}
+\addbibresource{chapter-5/chapter-5.bib}
+\addbibresource{cppendix-A/appendix-A.bib}
+
+
+
+% THE BEGINNING
+% -------------
+\begin{document}
+
+% Some useful commands
+\newcommand{\needref}{[\textbf{\textcolor{red}{*REFERENCES*}}]}
+
+% SI formatting options
+\sisetup{
+    range-phrase=--,
+    range-units=single,
+    per-mode=symbol,
+    detect-all
+}
+
+% De good stuff
+% -------------
+\title{Pain and suffering in The Netherlands}
+\author{Ryan}{Lane}
+% \date{\today}
+
+% De even better stuff
+% --------------------
+% Use Roman numerals for the page numbers of the title pages and table of
+% contents.
+\frontmatter
+% \maketitle
+\include{title/title}
+\input{propositions}
+\tableofcontents
+
+% De bestest stuff
+% ----------------
+% Use Arabic numerals for the page numbers of the chapters.
+\mainmatter
+\input{chapter-1/chapter-1}  % intro
+% \input{chapter-2/chapter-2}  % stage bias
+% \input{chapter-3/chapter-3}  % iCAT
+% \input{chapter-4/chapter-4}  % CLEMnet
+% \input{chapter-5/chapter-5}  % conclusion
+% \input{cppendix-A/appendix-A} % FM autofocus
+
+
+% % For format testing purposes
+% \input{blindtext.tex}
+
+
+% TODO:
+%   Alternate (short-form) chapter titles
+
+
+\end{document}

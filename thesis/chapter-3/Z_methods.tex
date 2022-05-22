@@ -1,0 +1,102 @@
+% \section{Materials \& methods}
+% \label{sec:2.2_methods}
+
+% % 2.2.1
+% % -----
+% \subsection{Sample preparation}
+% \label{sec:2methods_sampleprep}
+
+% \subsubsection{Rat pancreas tissue}
+% \label{sec:2methods_sampleprep_ratpancreas}
+
+% \subsubsection{Zebrafish pancreas tissue}
+% \label{sec:2methods_sampleprep_umcu}
+
+
+% % 2.2.2
+% % -----
+% \subsection{(Semi?)-automated section detection and \textit{in-situ} navigation}
+% \label{sec:2methods_secdetect}
+
+% To enable navigation between serial sections, individual sections are first identified and labelled by means of a simple image processing workflow (Figure \ref{fig:2.1_secdetect}). The sections, after being placed on the ITO-coated glass slide, are imaged at low magnification ($\sim$\SI{7}{\micro\meter\per\pixel}) using a VHX-6000 optical microscope (Keyence) operating in reflection mode. To segment individual sections, the RGB image (Figure \ref{fig:2.1_secdetect}a) is converted into Haematoxylin-Eosin-DAB (HED) color space, from which the DAB channel is selected to convert the image to grayscale (Figure \ref{fig:2.1_secdetect}b). Otsu thresholding is used to create a mask image (Figure \ref{fig:2.1_secdetect}c) which is then applied to the gradient image (Figure \ref{fig:2.1_secdetect}d). Watershed segmentation is then implemented by flooding the gradient image with a number of markers equal to the number of serial sections in the image (Figure \ref{fig:2.1_secdetect}e). The resulting labelled image (Figure \ref{fig:2.1_secdetect}f) then serves as input to a plugin created to facilitate navigation within the integrated microscope (Figure \ref{fig:2.1_secdetect}g).
+
+% \begin{figure}[!tbh]
+%     \centering
+%     \includegraphics[width=\linewidth]{chapter-2/figures/}
+%     \caption{Caption}
+%     \label{fig:3.1_secdetect}
+% \end{figure}
+
+
+% A number of alternative methods for automated section detection and segmentation were investigated.
+
+% % Templier used "Trainable Weka Segmentation" -- semi-automatic
+
+% % --- Template matching ---
+% \subsubsection{Template matching}
+% Template matching is a conventional image processing routine for identifying instances of a specified pattern, referred to as a template, in an image. For section detection, an individual section is first cropped from an overview image (Figure \ref{fig:2m_template}A \& B). Fast, normalized cross correlation is then used to find occurrences of sections based on the template image (Figure \ref{fig:2m_template}C). The template section returns the strongest match, and a peak-finding algorithm is used to find additional sections. In this way, \textcite{eberle2020large} used template matching for automated detection of sections prepared by an ATUMtome. Manually prepared sections, however, tend to exhibit a much higher degree of inhomogeneity. Template matching was thus found to be too crude of a detection method for our purposes. The lack of clear boundaries between sections, variations in color intensity and orientation prove particularly challenging. 
+
+% % Mfig 2.? (template matching)
+% \begin{figure}[!tbh]
+%     \centering
+%     \includegraphics[width=0.9\linewidth]{chapter-2/mfigures/template_matching.pdf}
+%     \caption{\textbf{Template matching on section images.}
+%     A) A template section is cropped from an overview section image (B). Fast normalized cross correlation is then used to generate a probability map of occurrences of the template in the section image (C). The template section is denoted by a red box; green x's illustrate matched sections.}
+%     \label{fig:2m_template}
+% \end{figure}
+
+% % --- SNAKES ---
+% \subsubsection{Active contour model}
+% One 
+
+% \subsubsection{Convolutional neural networks}
+
+
+% % 2.2.3
+% % -----
+% \subsection{Targeted correlative acquisition of an individual region of interest}
+% \label{sec:2methods_acqstrat}
+
+% TODO:
+% \setlist{nolistsep}
+% \begin{itemize}[noitemsep]
+%     \item Patent pending
+%     \item Greater emphasis on efficiency and overcoming the order of magnitude scale difference. We can precisely overlay individual EM FM pairs but doing so at high res would be hugely inefficient (both in terms of space and data handling.)
+% \end{itemize}
+% \vspace{1em}
+
+% The correlative imaging scheme begins with the acquisition of an FM and low magnification EM image tile (Figure \ref{fig:2.2_acqstrat}a). The FM image is acquired prior to the EM image to preserve the fluorescence signal. Immediately following the acquisition of the low magnification EM image tile, an automated alignment routine is run to register the image pair with sub 10nm precision \cite{haring2017automated}. The information necessary to compute the appropriate affine transformation is saved in the metadata of the image file for postprocessing (Section \ref{sec:2methods_reconstruction}). This sequence of correlative imaging is then replicated in a grid-like pattern via stage translation, encompassing the entire section. The FM image tiles are acquired with a \SIrange{15}{25}{\percent} overlap to allow for later reconstruction (Figure \ref{fig:2.2_acqstrat}b). The FoV of the FM image tiles are governed by the magnification of the high-NA objective. Imaging is routinely done with a CFI S Plan Fluor ELWD 60XC objective (Nikon) resulting in a $\sim$\SI{220}{\micro\meter} FoV. The FoV of the low magnification EM tile is in turned determined by the combination of the FM tile FoV and overlap. It is chosen such that it spans the maximum area within the FM tile FoV without entering the overlap region of the adjacent FM image tiles—thereby avoiding bleaching of the fluorescence.
+% %
+% \begin{equation}
+%     FoV_{EM} = FoV_{FM} - 2 \left(1 - o_{FM} \right) FoV_{FM}
+% \end{equation}
+% %
+% where $FoV_{EM}$ and $FoV_{FM}$ are the EM and FM fields of view respectively and $o_{FM}$ is the overlap between adjacent FM tiles. Typical EM fields of view are approximately \SI{150}{\micro\meter}. The collection of FM image tiles are then crudely stitched together to allow for fluorescence-based ROI detection. 
+
+% Once a region of interest has been identified, high resolution ($\sim$\SI{5}{\nano\meter\per\pixel}) EM imaging can begin (Figure \ref{fig:2.2_acqstrat}c). A grid of high-magnification EM image tiles encompassing the ROI is acquired with \SIrange{10}{15}{\percent} overlap (Figure \ref{fig:2.2_acqstrat}d) to allow for subsequent alignment (\ref{sec:2methods_reconstruction}). Following acquisition of the high-magnification EM grid, the acquisition pipeline is repeated on the next serial section until every section has been imaged.
+
+% \begin{figure}[!tbh]
+%     \centering
+%     \includegraphics[width=\linewidth]{chapter-2/figures/fig2-2_acqstrat.pdf}
+%     \caption{Correlative image acquisition scheme allows for [good stuff (efficiency / high precision)] without [bad stuff (bleaching)]. The routine begins with the acquisition of a correlative FM and low magnification EM image pair (a). After registering the correlative image pair, the stage is then translated such that there is a slight overlap with the neighbouring FM image tile and no overlap with the EM image tile. This sequence is then repeated until the fluorescence of the entire tissue section has been captured (b). Regions of interest can then be readily identified by fluorescence expression for subsequent high magnification EM imaging (c). The stage is then navigated over the ROI in a grid-like fashion (d). The [routine/pipeline/workflow] is then repeated on [every] serial section. [Should maybe add an element of 3D to the figure?]}
+%     \label{fig:2.2_acqstrat}
+% \end{figure}
+
+
+% % 2.2.4
+% % -----
+% \subsection{Cross-modal registration and reconstruction}
+% \label{sec:2methods_reconstruction}
+
+% To correlate the fluorescence data with the high-resolution structural data three different imaging volumes---varying across vastly different spatial scales and imaging modalities---must be reconstructed. As stated in Section \ref{sec:2methods_acqstrat}, an automated alignment routine is run immediately following the acquisition of the FM and low-magnification EM image pair. This alignment routine involves recording a grid of cathodoluminescent (CL) spots with the CCD of the fluorescence microscope in the absence of any excitation light (Figure \ref{fig:2.3_reconstruction}a). The metadata saved during this procedure is used in conjunction with the stage coordinates to compute the affine transformation necessary for overlaying the fluorescence images onto the low-magnification EM images. In this way, each FM, low-magnification EM image pair within the section is aligned with sub \SI{10}{\nano\meter} precision (Figure \ref{fig:2.3_reconstruction}b).
+
+% The high-magnification EM image stack is aligned by solving a system of linear equations comprised of SIFT keypoint features \cite{lowe1999object, khairy2018joint}. SIFT features are used to first stitch together the image tiles within each individual section. The stitched together sections are then downsampled and roughly aligned in $z$ to facilitate feature mapping between high-magnification image tiles in adjacent sections. A global alignment can then be run to finely align the image stack in 3D (Figure \ref{fig:2.3_reconstruction}c).
+
+% The low-magnification EM image stack serves as a mapping to correlate the FM image stack with the high-resolution EM image stack. This correlation procedure works by first finding the set of overlapping high-magnification EM tiles corresponding to each low-magnification EM tile using the known stage coordinates. A composite image of the overlapping tiles is then rendered and processed with SIFT to find features corresponding to those in the low-magnification EM tile (Figure \ref{fig:2.3_reconstruction}d). An affine transformation can then be computed for this set of features and propagated to each of the FM tiles such that they can be overlaid precisely with the aligned, high-magnification EM image stack across each section in $z$ (Figure \ref{fig:2.3_reconstruction}e).
+
+% \begin{figure}[!tbh]
+%     \centering
+%     \includegraphics[width=\linewidth]{chapter-2/figures/fig2-3_reconstruction.pdf}
+%     \caption{The fluorescence image stack is mapped onto the aligned, high-magnification EM image stack via the FM-registered, low-magnification EM images. (a) Automated alignment procedure for registering the FM and low-magnification EM image pair at sub \SI{10}{\nano\meter} precision \cite{haring2017automated}. (b) Using [registration information], FM image tiles are overlayed onto the low-magnification EM tiles of each section. (c) The high-magnification EM image stack is aligned independent of either the FM or low-magnification EM image stacks \cite{khairy2018joint}. (d) Registration of the two EM image stacks is performed by first finding the set of overlapping high-magnification EM tiles corresponding to each individual low-magnification EM image. SIFT features between the set of high-magnification EM images and the individual low-magnification EM image are then used to correlate the two EM stacks. (e) The low-magnification EM image stack then serves as a reference to ultimately overlay the fluorescence data onto the high-magnification EM image stack with high precision.}
+%     \label{fig:2.3_reconstruction}
+% \end{figure}

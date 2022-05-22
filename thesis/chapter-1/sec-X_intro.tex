@@ -1,0 +1,63 @@
+
+\section{So you want to know how the brain works?}
+
+Central problem is that the building blocks of biological systems are on the nanometer scale whereas the system as a whole is on the millimetre (or possibly larger) scale. Can use the brain as an example.
+
+\section{Fluorescence Microscopy}
+
+Background
+
+Targeted, biological information; labeling ability
+
+
+\section{Electron Microscopy}
+
+Background
+
+High resolution, structural information
+
+
+\section{Volume electron microscopy}
+
+Refer back to how it would be nice to image the brain (large volume).
+
+There are a variety of techniques for three‐dimensional imaging of biological specimens via electron microscopy. Modern volume EM techniques can be divided into two broader methods: array tomography‐based approaches in which ultrathin serial sections are cut from a block of tissue prior to EM imaging, such as serial section scanning or transmission EM; and blockface-based approaches in which the tissue block is sectioned as it is imaged, such as serial blockface or focused ion beam SEM. While both of these methods have their respective advantages and disadvantages \cite{briggman2012volume, peddie2014exploring, collinson2017correlating}, an important distinction is that array tomography allows for re-evaluation of sections whereas the specimen is irrevocably lost in blockface approaches \cite{schifferer2021niwaki}.
+
+Despite the success these techniques have had in generating high-quality three-dimensional reconstructions, significant challenges remain. At present, one of the most stringent constraints facing high-resolution (<\,\SI{10}{\nano\meter}) volume EM imaging is throughput. To scan an entire mouse cortical column, for example, a $400 \times 400 \times \SI{1000}{\micro\meter^3}$ volume, at \SI{4}{\nano\meter\per\pixel} with \SI{30}{\nano\meter} section thickness---the resolution necessary to reliably detect certain subcellular structures---\textcite{briggman2012volume} have estimated that it would take $\sim$500 days of uninterrupted imaging. For this reason, it is advantageous to locate regions of interest prior to large‐scale EM imaging to minimize the imaging volume.
+
+One approach, taken by \textcite{hildebrand2017whole} for whole‐brain ssSEM reconstruction of a larval zebrafish, was to utilize multiple rounds of targeted EM imaging at successively higher levels of magnification. Similar approaches have likewise been taken in other large‐scale neural reconstruction endeavors such as \textcite{bock2011network} in partial brain imaging of a mouse visual cortex and \textcite{zheng2018complete} in full brain imaging of an adult \textit{Drosophila melanogaster}. Although these multiscale approaches have been implemented with great success, throughput remains a bottleneck primarily due to the need for intermediate analysis of the EM dataset. The selection of subregions of interest for imaging at successive magnification scales is driven by localization of the biological material of interest, which can only be done after manual or machine‐learning‐assisted analysis of the preceding EM dataset. While machine‐learning techniques have made tremendous progress in reducing human involvement, interpretation and annotation of EM datasets remain a tedious and error‐prone practice. These methods are therefore not yet appropriate for selecting subregions at higher magnification scales, meaning selection cannot be done either automatically or in real time.
+
+
+\section{Correlative light and electron microscopy}
+
+In addition to low throughput, electron microscopy has the additional limitation that it does not contain the protein‐ and molecular‐specific information available from fluorescence microscopy---unless the proteins are known to be specifically linked to a structural component. This information is not only crucial for understanding biological function but can also be used to guide to ROIs based on molecular expression. Thus, while EM is successful at providing ultrastructural information, it is not always useful for localizing the ROIs. Functional fluorescence microscopy has been employed to identify the biological material of interest, particularly in blockface approaches \cite{karreman2016fast}, but workflows to retrieve selected regions from the specimen and trim the block to the appropriate size can be both complicated and time‐consuming. Additionally, they may involve further rounds of multimodal inspection, e.g. with X‐ray tomography \cite{karreman2016intravital}. Finally, when only EM imaging is performed after the extensive sample preparation following FM it may be very hard to link between the structural information conveyed by EM and the dynamic, functional data obtained with live‐cell FM.
+
+Thus we combine the methods! CLEM! Talk about CLEM for awhile.
+
+Transition to integrated:
+In the past decades, CLEM methods have evolved from being mostly used by a few pioneering, specialist labs to a collection of techniques and workflows practiced by a broad group of researchers in structural biology \cite{de2015correlated}. In most cases, CLEM involves a distinct set of sequentially used specimen preparation and labeling techniques, followed by diverse types of light and electron microscopy techniques, with specific workflows for sample transfer and relocation of regions of interest. A key advantage of sequential CLEM is the wide diversity of available microscopes: in principle, any type of microscope can be added to the workflow, provided requirements on sample preparation and handling can be met. 
+
+
+\section{Integrated microscopy}
+
+Workflow procedures to combine different (light and electron) microscopes can be tedious, involving extensive manual labor, transfers, and relocation of regions of interest, which can be cumbersome and prone to errors. Microscopes that integrate a light and an electron microscope in one have been developed as early as the 1980s and a wide variety of integrated microscopes with different modalities has been reported in literature in recent years \cite{zonnevylle2013integration, timmermans2015contributed}. Several of these have now also become commercially available. [One of these in particular proved to be extremely useful for my PhD].
+
+For a specific CLEM experiment, the choice between an experimental workflow with standalone microscopes or with an integrated microscope depends on a variety of factors, including the precise goal and requirements of the experiment, amenable sample preparation protocols, and local availability of microscopes, probes, and expertise. If only a single or very few samples have to be carried through the CLEM workflow, adopting sample preparation protocols towards integrated inspection may be an effort that does not outweigh the potential benefits. However, in terms of throughput, avoiding sample contamination, achievable precision of ROI retrieval, and ease and accuracy of image correlation, integrated microscopes offer advantages. 
+
+% In this chapter, we will focus on those areas in present‐day CLEM that are faced with challenges for which these advantages of integrated microscopes may well be key for further advancement. These areas, in our opinion, are large‐scale and high‐throughput correlated (volume) microscopy, super‐resolution localization in resin or cryo‐frozen sections, fluorescence‐guided FIB milling for cryo‐electron tomography, and the integration of sample preparation and transfer. Ultimately this should lead to the development of specific integrated CLEM systems with complete and fully automated workflows, leading to high‐throughput and high‐yield systems.
+
+
+\section{Integrated correlative array tomography}
+
+Talk about (conventional) array tomography.
+
+Challenges of (conventional) array tomography.
+
+Integrated array tomography seeks to build on the success and usefulness of modern volume EM imaging techniques by addressing these challenges. In conventional array tomography, a tissue specimen is chemically fixated, embedded in resin, and cut into a series of ultrathin sections which are collected as ribbons on a solid substrate or on flexible, sticky Kapton tape. The sections are then immunostained for imaging in a wide- field fluorescence microscope, possibly in several rounds to highlight multiple molecules, and finally heavy metal stained for EM imaging \cite{micheva2007array, wacker2013array}. Integrated array tomography combines FM and EM image acquisition with high alignment accuracy through the use of an integrated microscope. Furthermore, as this requires samples with both fluorescence labeling and EM staining present, it removes the need for intermediate sample preparation, which carries the risk of distorting the sample. A visual representation of a hypothetical workflow for integrated correlative array tomography (iCAT) is shown in Figure 7.1. In principal, such a workflow begins by following a customized protocol for fixation, embedding, and staining the sample such that fluorescence is preserved (see, e.g., references in \textcite{de2015correlated}). Serial sections are then loaded into the integrated micro- scope and imaged sequentially. Automated procedures for registration between imaging modalities can be implemented to ensure consistent overlay accuracy across an entire reconstructed dataset \cite{haring2017automated}.
+
+Future applications of CLEM will demand greater precision, further automation, and higher throughput, for which iCAT offers a number of potential advantages. Above all else, iCAT enables large numbers of serial sections to be sequentially and automatically imaged to generate reconstructed volumes of overlaid FM and EM datasets with matching axial resolution. Moreover, specimen warping and shrinkage, which might otherwise occur in conventional array tomography methods, is prevented due to the absence of intermediate sample preparation. This ensures a precise overlay of biological molecules and structural context at high resolution in all three dimensions. Additionally, precisely overlaid fluorescence data has the potential to vastly improve classification of ultrastructural features in EM data.
+
+As alluded to previously, while modern machine‐learning‐based segmentation methods (e.g. ilastik \cite{sommer2011ilastik}, SuRVoS \cite{luengo2017survos}) are quite sophisticated, they nevertheless require some degree of manual annotation. Because high‐accuracy overlaid correlative data- sets contain, in a sense, the classification data that these methods seek to provide, such datasets could reduce the need for supervised learning while opening up new possibilities for different machine learning applications. For combating throughput limitations, iCAT is equipped to enable automated detection of regions of interest based on in‐section fluorescence expression. And by sharing a common optical axis and translation stage, it is possible to drive to the select cell or region within the section to begin high‐resolution imaging. This kind of automated imaging scheme has already seen early development and implementation \cite{delpiano2018automated}. Finally, fluorescence preservation or post‐embedding re-labeling of genetic fluorophores may facilitate linking ultrastructural observations to live, intravital fluorescence microscopy. Prior to array tomography, photoactivatable probes could be used to mark where cells can be assessed for function. These markers could then be activated as part of the iCAT workflow, thus linking the ultrastructural data to not only fluorescence expression but also function and development \cite{collinson2017correlating}.
+
+
+\section{Outline of thesis}
