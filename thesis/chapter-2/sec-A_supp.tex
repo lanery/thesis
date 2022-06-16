@@ -1,8 +1,16 @@
 \clearpage
+
+% Customize section counter
+\renewcommand\thesection{\arabic{chapter}.\Alph{section}}
+\setcounter{section}{0}
 \section{Supplementary material}
 \label{sec:2_supplement}
+
+% Customize figure counter
 \renewcommand{\thefigure}{S\arabic{figure}}
-\setcounter{figure}{0}    
+\setcounter{figure}{0}
+
+\subsection{test subsection}
 
 % TODO: negative x-axis
 % Figure 2.S1 (percentages)
@@ -26,4 +34,3 @@
     \caption{Caption.}
     \label{fig:2.S2_comparison}
 \end{figure}
-

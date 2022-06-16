@@ -81,7 +81,8 @@
 \RequirePackage{unicode-math}
 \RequirePackage{multirow}
 \RequirePackage{booktabs}
-
+\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
 
 
 % Set fonts
