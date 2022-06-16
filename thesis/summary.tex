@@ -2,8 +2,64 @@
 \addcontentsline{toc}{chapter}{Summary}
 \setheader{Summary}
 
-Summary in English. \blindtext
+% --- Blind text ---
+% Summary in English. \blindtext
 
-A new paragraph with a citation \cite{hildebrand2017whole}. Let us also add some numbers with units like \SI{100}{\milli\gram} and even a range of units \SIrange{14}{27}{\kilo\pascal}. \blindtext Could also look at units in math mode like $\SI{13.8}{\newton\per\metre}$. Let's follow this up with some math \cite{delpiano2018automated}.
+% A new paragraph with a citation \cite{hildebrand2017whole}. Let us also add some numbers with units like \SI{100}{\milli\gram} and even a range of units \SIrange{14}{27}{\kilo\pascal}. \blindtext Could also look at units in math mode like $\SI{13.8}{\newton\per\metre}$. Let's follow this up with some math \cite{delpiano2018automated}.
 
-\blindmathpaper
+% \blindmathpaper
+
+
+
+% --- Actual summary ---
+% [This thing] [puts forth / establishes] an integrated microscopy workflow for the three-dimensional reconstruction of biological material from correlative light and electron microscopy (CLEM) image data.
+
+% Why is this relevant? 
+Multi-modal imaging techniques have become essential for better understanding fundamental questions in cell biology such as [a good question] or how certain diseases progress at the cellular level. While individual microscopy methods have rapidly advanced in recent years, the information content of any one imaging technique is limited to the type of contrast that particular technique is sensitive to. By tagging particular biomolecules with a fluorescent protein, fluorescence microscopy (FM), for example, can relay dynamic information about the distribution of this biomolecule in its cellular environment. It struggles, however, to convey information regarding [something structural] or what its cellular environment is made up of. Electron microscopy (EM), on the other hand, can provide detailed [structural layouts of stuff] by staining [cells with heavy metals that bind to membranes]. Thus, by integrating these modalities, a more holistic understanding of the relationship between structure and function at the (sub-)cellular level can be achieved. [And by scaling the methods from single cells to swaths of tissue or whole organs, we can learn a lot more intercellular stuff].
+
+But why bother integrating? Surely you could just image with separate microscopes and benefit from two, mature but independent instruments. Well there are a lot of benefits to integrating. More precise correlation between the EM and FM datasets, more automation capabilities, and (quasi-)simultaneous imaging of the same of field of view. Moreover, the need for intermediate sample preparation is removed, as is the difficulty of finding back regions of interest.
+
+% Prior to engineering a workflow for volume CLEM, the 
+
+
+% An important thing to keep in mind when contemplating any type of imaging scheme is the notion of contrast mechanism. 
+
+Before we could begin to engineer a workflow, had to improve the data acquisition rate. Prior work in integrated CLEM required frame times of several minutes. This is because typical sample preparation protocols for SEM are incompatible with fluorescence microscopy. Heavy metal staining and cross-linking in polymer resin also tends to kill fluorescence. In order to retain some fluorescence, the samples are weakly stained with heavy metals and no post-staining is applied. This leads to weak signal. Even something as small as a cell,
+${\sim}\text{20} \times \text{20} \times \text{20}$ \si{\micro\meter^3},
+might then take duration to fully image, not including overhead and stage movements and so forth.
+
+So we first introduce a trick for speeding up acquisition rates, negative potential bias. This works by accelerating signal electrons (backscattered electrons, BSEs) to a dedicated detector. We show via charged particle optics modeling that this also has the effect of filtering out secondary electrons. This is advantageous as SEs carry information regarding sample topography as opposed to its biological makeup. BSEs are able to show this because BSEs are generated from elastic collisions which come about from / contrast mechanism for BSEs is difference in atomic number. Basically contrast from carbon versus osmium because samples are stained with osmium which binds to lipids. Cell and organelle membranes are composed of a lipid bilayer to which the osmium binds. By employing this trick, we are able to earn up to 20-fold increases in imaging speed. As in, the signal-to-noise ratio (SNR) is kept constant for a 20x reduction in integration time using negative potential bias. We also developed a tool for characterizing the SNR of individual images. So then we can think about applying it to do correlative imaging.
+
+
+
+We present a pipeline for 3D CLEM that utilizes negative bias potential to acquire CLEM images at a reasonable pace. Additional gains in imaging speed come about by limiting the acquisition area to those regions identified by fluorescence to contain proteins or biomolecules of interest.
+
+
+
+
+
+
+% Correlative Light and Electron Microscopy (CLEM) uses separate light and electron microscopes to localise cloned fluorophores within the structural reference space of the cell [1], [2]. Fluorophores are first imaged using light microscopy, followed by an extended sample preparation procedure, after which ultrathin sections of resin-embedded cells are cut and viewed in the electron microscope (EM). The use of separate imaging modalities makes the accurate localisation of a fluorescent signal to specific cellular structures difficult, particularly as the axial resolution of a standard fluorescence microscope is approximately one order of magnitude lower than that of an ultrathin resin section imaged in the EM.
+
+% Correlative light and electron microscopy (CLEM) infers molecular information to an ultrastructure by uniting data from light microscopy (LM) and electron microscopy (EM). In the past decade, CLEM techniques have been used mostly to identify rare or transient cellular events by LM, and relate this to the underlying structural and cellular context by EM. Hence, CLEM has become instrumental in furthering our understanding of molecular functions in cells. So far, most CLEM applications use 2D transmission EM sections. A drawback of these approaches is that they have limited application in the z-axis, hampering the possibility to obtain 3D images [69]. Correlative light and volume electron microscopy (volume-CLEM) broadens the applications of CLEM to understand the function of molecules in the structural context of the 3D organization of a cell, at different organization scales: single organelles, tissues, whole cells, and eventually organs and organisms.
+
+
+
+
+
+
+% Large-scale electron microscopy (EM) allows analysis of both tissues and macromolecules in a semi-automated manner, but acquisition rate forms a bottleneck. We reasoned that a negative bias potential may be used to enhance signal collection, allowing shorter dwell times and thus increasing imaging speed. Negative bias potential has previously been used to tune penetration depth in block-face imaging. However, optimization of negative bias potential for application in thin section imaging will be needed prior to routine use and application in large-scale EM. Here, we present negative bias potential optimized through a combination of simulations and empirical measurements. We find that the use of a negative bias potential generally results in improvement of image quality and signal-to-noise ratio (SNR). The extent of these improvements depends on the presence and strength of a magnetic immersion field. Maintaining other imaging conditions and aiming for the same image quality and SNR, the use of a negative stage bias can allow for a 20-fold decrease in dwell time, thus reducing the time for a week long acquisition to less than \SI{8}{\hour}. We further show that negative bias potential can be applied in an integrated correlative light electron microscopy (CLEM) application, allowing fast acquisition of a high precision overlaid LM-EM dataset. Application of negative stage bias potential will thus help to solve the current bottleneck of image acquisition of large fields of view at high resolution in large-scale microscopy.
+
+% Volume electron microscopy (EM) of biological systems has grown exponentially in recent years due to innovative large-scale imaging approaches. As a standalone imaging method, however, large-scale EM typically has two major limitations: slow rates of acquisition and the difficulty to provide targeted biological information. We developed a 3D image acquisition and reconstruction pipeline that overcomes both of these limitations by using a widefield fluorescence microscope integrated inside of a scanning electron microscope. The workflow consists of acquiring large field of view fluorescence microscopy (FM) images, which guide to regions of interest for successive EM (integrated correlative light and electron microscopy). High precision EM-FM overlay is achieved using cathodoluminescent markers. We conduct a proof-of-concept of our integrated workflow on immunolabelled serial sections of tissues. Acquisitions are limited to regions containing biological targets, expediting total acquisition times and reducing the burden of excess data by tens or hundreds of GBs.
+
+% Electron microscopy (EM) provides high-resolution images of (sub-)cellular ultrastructure. Identifying particular organelles or proteins of interest from EM images alone, however, is often a challenge. Deep learning-based approaches have rapidly been adopted within biological EM to perform structural recognition tasks, such as organelle segmentation, due to their strength in pattern inference and analyzing visual imagery. Such approaches require large training datasets, typically at the expense of hundreds of hours of human annotation. As an alternative means of providing biological labels to EM datasets, we developed CLEMnet, a deep convolutional neural network that has been trained on large-scale ({$\sim$}\SI{16}{GB}) correlative light and electron microscopy (CLEM) data. These datasets have been compiled via integrated array tomography such that manual annotation is not required for generating predictions. CLEMnet predictions generated on EM images unseen by the network are highly correlated with the measured fluorescence signal. As the biological labels generated by the network are localized to specific cellular features and organelles, we additionally assess the feasibility of the correlative fluorescence data and network-generated predictions as training masks for organelle segmentation. We find that while segmentation models trained on these masks significantly underperform those trained on masks made by hand, overall segmentation performance can be greatly improved by minimal human annotation.
+
+
+Challenges that still lie ahead.
+% Paired with the high-accuracy fluorescence-to-EM registration that can be obtained consistently over large areas, integrated microscopes seem particularly suited to improve throughput and functional mapping in serial sections volume-EM. Instrumentation seems to be in place, but automation, especially in fluorescence recognition and unattended acquisition, needs development. Challenges also remain in further, more wide-spread applications of fluorescence preserving EM sample preparation, on-section immuno-labelling, and reduction of resin auto-fluorescence.
+
+
+
+% --- Ando et al. (2018) ---
+% The investigation of cell development requires a multi-parametric approach to address both the structure and spatio-temporal organization of organelles, and also the transduction of chemical signals and forces involved in cell–cell interactions. Although the microscopy technologies for observing each of these characteristics are well developed, none of them can offer read-out of all characteristics simultaneously, which limits the information content of a measurement. For example, while electron microscopy is able to disclose the structural layout of cells and the macromolecular arrangement of proteins, it cannot directly follow dynamics in living cells. The latter can be achieved with fluorescence microscopy which, however, requires labelling and lacks spatial resolution. A remedy is to combine and correlate different readouts from the same specimen, which opens new avenues to understand structure–function relations in biomedical research.
+% https://iopscience.iop.org/article/10.1088/1361-6463/aad055/meta#artAbst
