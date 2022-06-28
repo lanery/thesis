@@ -21,20 +21,13 @@
     style=numeric,
     refsection=chapter,
     sorting=none,
-    maxcitenames=2,
+    maxcitenames=12,
     mincitenames=1,
 ]{biblatex}
 \renewbibmacro{in:}{}  % https://tex.stackexchange.com/questions/10682/suppress-in-biblatex
 
 % Add bibresources for biblatex
 \addbibresource{references.bib}
-% \addbibresource{chapter-1/chapter-1.bib}
-% \addbibresource{chapter-2/chapter-2.bib}
-% \addbibresource{chapter-3/chapter-3.bib}
-% \addbibresource{chapter-4/chapter-4.bib}
-% \addbibresource{chapter-5/chapter-5.bib}
-% \addbibresource{cppendix-A/appendix-A.bib}
-
 
 
 % THE BEGINNING
@@ -55,28 +48,29 @@
 % De good stuff
 % -------------
 % \title{Pain and suffering in The Netherlands}
-\title{Integrated Array Tomography: \texorpdfstring{\\}
-Development and Applications of a Workflow for 3D Correlative Light and Electron Microscopy}
+\title[Development and Applications of a Workflow for 3D Correlative Light and Electron Microscopy]{Integrated Array Tomography}
 \author{Ryan}{Lane}
-% \date{\today}
+
 
 % De even better stuff
 % --------------------
 \frontmatter  % Roman numerals for early page numbers
-% \include{title/title}
+\include{title/title}
 \input{propositions}
-% \tableofcontents
-% \include{summary}
+\tableofcontents
+\include{summary}
 
 % % De bestest stuff
 % % ----------------
-% \mainmatter  % switch to Arabic numerals for the page numbers
-% \input{chapter-1/chapter-1}  % intro
-% \input{chapter-2/chapter-2}  % stage bias
-% \input{chapter-3/chapter-3}  % iCAT
-% \input{chapter-4/chapter-4}  % CLEMnet
-% \input{chapter-5/chapter-5}  % conclusion
-% \input{cppendix-A/appendix-A} % FM autofocus
+\mainmatter  % switch to Arabic numerals for the page numbers
+\input{chapter-1/chapter-1}  % intro
+\input{chapter-2/chapter-2}  % stage bias
+\input{chapter-3/chapter-3}  % iCAT
+\input{chapter-4/chapter-4}  % CLEMnet
+\input{chapter-5/chapter-5}  % conclusion
+\input{cppendix-A/appendix-A} % FM autofocus
+\input{cv} % curriculum vitae and list of publications
+% \input{acknowledgments}      % acknowledgments
 
 
 % % For format testing purposes
@@ -89,5 +83,6 @@ Development and Applications of a Workflow for 3D Correlative Light and Electron
 %   Section as appendix at end of each chapter
 %   Cite github packages
 %   Figure Numbering in appendix (S should be A)
+%   Decide on convention for label (or labelled)
 
 \end{document}
