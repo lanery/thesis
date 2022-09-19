@@ -21,10 +21,17 @@
     style=numeric,
     refsection=chapter,
     sorting=none,
-    maxcitenames=12,
+    maxcitenames=2,
     mincitenames=1,
 ]{biblatex}
-\renewbibmacro{in:}{}  % https://tex.stackexchange.com/questions/10682/suppress-in-biblatex
+\renewbibmacro{in:}{}  % https://tex.stackexchange.com/a/10686/261688
+
+
+% Set min/max bib names locally
+% https://tex.stackexchange.com/a/517274/261688
+\makeatletter
+\newrobustcmd*{\setmaxcitenames}{\numdef\blx@maxcitenames}
+\makeatother
 
 % Add bibresources for biblatex
 \addbibresource{references.bib}
@@ -49,14 +56,13 @@
 % -------------
 % \title{Pain and suffering in The Netherlands}
 \title[Development and Applications of a Workflow for 3D Correlative Light and Electron Microscopy]{Integrated Array Tomography}
-\author{Ryan}{Lane}
+\author{Ryan Irwin}{Lane}
 
 
 % De even better stuff
 % --------------------
 \frontmatter  % Roman numerals for early page numbers
 \include{title/title}
-\input{propositions}
 \tableofcontents
 \include{summary}
 
@@ -69,20 +75,12 @@
 \input{chapter-4/chapter-4}  % CLEMnet
 \input{chapter-5/chapter-5}  % conclusion
 \input{cppendix-A/appendix-A} % FM autofocus
-\input{cv} % curriculum vitae and list of publications
-% \input{acknowledgments}      % acknowledgments
+\input{cv} % CV
+\input{acknowledgments} % acknowledgments
 
 
 % % For format testing purposes
 % \input{blindtext.tex}
 
-
-% TODO:
-%   Add a splash of color
-%   Figure out "parts of this chapter" footnotes
-%   Section as appendix at end of each chapter
-%   Cite github packages
-%   Figure Numbering in appendix (S should be A)
-%   Decide on convention for label (or labelled)
 
 \end{document}

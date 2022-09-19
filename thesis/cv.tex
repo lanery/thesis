@@ -2,11 +2,18 @@
 \addcontentsline{toc}{chapter}{Curriculum Vit\ae}
 \setheader{Curriculum Vit\ae}
 
-%% Print the full name of the author.
+% %% Print the full name of the author.
+% \makeatletter
+% % \authors{\@firstname\ {\titleshape\@lastname}}
+% \begin{center}
+%     {\Large\bfseries Ryan Irwin \titleshape Lane}
+% \end{center}
+% \makeatother
+
+% Print the full name of the author.
 \makeatletter
-% \authors{\@firstname\ {\titleshape\@lastname}}
 \begin{center}
-    {\Large\bfseries Ryan \titleshape Lane}
+    {\Large\titlefont\bfseries\@firstname\ {\titleshape\@lastname}}
 \end{center}
 \makeatother
 
@@ -48,30 +55,40 @@
     \\
 \end{tabular}
 
-% % --- AWARDS ---
-% \section*{\textsc{Awards}}
-% \begin{tabular}{p{4\parindent}l}
-%     2019 & Microscopy \& Microanalysis poster prize \\
-%     2014 & Kenneth Cashdollar prize in physics \\
-%     2013 & Richard M. Sia Memorial prize in physics \\
-%     2011 & Landis-Mohler prize in physics
-% \end{tabular}
-
+\setmaxcitenames{999}
 
 % --- PUBLICATIONS ---
 \section*{\textsc{Publications}}
-\begin{itemize}
+\begin{itemize}[label={}]
     \item \fullcite{lane2021label}.
     \item \fullcite{lane2021integrated}.
     \item \fullcite{lane2021optimization}.
-    \item \fullcite{kievits2022how}.
+    \item \fullcite{kievits2022innovations}.
     \item \fullcite{vos2021retarding}.
     \item \fullcite{koning2019integrated}.
 \end{itemize}
 
 
+
 % --- PATENTS ---
 \section*{\textsc{Patents}}
-\begin{itemize}
+\begin{itemize}[label={}]
         \item \fullcite{den2021method}
+\end{itemize}
+
+% --- Github repos ---
+\section*{\textsc{Software repositories}}
+\begin{itemize}[label={}]
+        \item \fullcite{Lane_iCAT-workflow_2022}
+        \item \fullcite{Lane_focus-metrics_2022}
+        \item \fullcite{Lane_CLEMnet_2020}
+        \item \fullcite{Boltje_PSF-Extractor_2022}
+\end{itemize}
+
+
+% --- Datasets ---
+\section*{\textsc{Published Datasets}}
+\begin{itemize}[label={}]
+        \item \fullcite{lane2022dataIntegrated}
+        \item \fullcite{lane2022dataOptimization}
 \end{itemize}
