@@ -1,15 +1,23 @@
 \clearpage
+
+% Customize section counter
+\renewcommand\thesection{\arabic{chapter}.\Alph{section}}
+\setcounter{section}{0}
 \section{Supplementary material}
 \label{sec:4_supplement}
-\renewcommand{\thefigure}{S\arabic{figure}}
-\setcounter{figure}{0}    
+
+% Customize figure counter
+\renewcommand{\thefigure}{4.A\arabic{figure}}
+\setcounter{figure}{0}
+
+
 
 % Figure 4.S1 (ROIS)
 % ------------------
 \begin{figure}[!tbh]
     \centering
     \includegraphics[width=0.95\linewidth]{chapter-4/figures_PDF/fig4-S1_rois.pdf}
-    \caption{CLEMnet is able to perform nontrivial structural recognition tasks as well as mitigate issues inherent to fluorescence imaging. (Continued on next page\ldots)}
+    \caption{CLEMnet performs nontrivial structural recognition tasks as well as mitigate issues inherent to fluorescence imaging. (Continued on next page\ldots)}
     \label{fig:4.S1_rois}
 \end{figure}
 \addtocounter{figure}{-1}

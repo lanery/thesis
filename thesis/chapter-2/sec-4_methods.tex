@@ -28,14 +28,13 @@ HeLa cells were cultured in a \SI{37}{\celsius}, 5\% CO2 incubator, in T75 cultu
 
 % 2.4.3
 % -----
-\subsection{Signal-to-noise measurements}
+\subsection{Signal-to-noise ratio measurements}
 \label{sec:3.4.3_snr}
 
 The SNR is calculated by averaging the spectral signal-to-noise ratio (SSNR) \cite{unser1987new} over the full frequency space of the set of input images. Here, the input images are composed of alternating scan lines from individual images acquired with a pixel size on par with the resolution of the electron beam. The SSNR is given by
 %
 \begin{equation}
-    R_n = \frac{\text{cov}\left( I_{i}, I_{i+1} \right)}
-              {\text{var}\left(I_{i}\right) \text{var}\left(I_{i+1}\right)}
+    SSNR(R) = \frac{\sum_{r \in R} \Bigl \lvert \sum_k F_k(r) \Bigr \rvert ^2}{\frac{K}{K-1} \sum_{r \in R} \sum_k \Bigl \lvert F_k(r) - \bar{F}(r) \Bigr \rvert ^2} - 1
 \end{equation}
 %
 where $F_k(r)$ is the Fourier transform of the $k^{\text{th}}$ image, there are $K$ images in total, $\overline{F}=\frac{1}{k}\Sigma_k F_k(r)$ is the mean of the Fourier transformed images, and $R$ is the region of interest. A single SNR value for the entire image (Figure \ref{fig:2.4_snr}; Figure \ref{fig:2.S2_comparison}) is obtained when $R$ is the full image; when spectrally resolved (bottom row of Figure \ref{fig:2.5_noise}), $R$ is a ring in Fourier space.

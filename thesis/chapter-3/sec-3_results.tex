@@ -12,7 +12,7 @@ Simple navigation between serial sections within the integrated microscope is cr
 % ---------------------
 \begin{figure}[!tb]
     \centering
-    \includegraphics[width=\linewidth]{chapter-3/figures_JPEG_LQ/fig3-1_workflow.jpg}
+    \includegraphics[width=\linewidth]{chapter-3/figures_PDF/fig3-1_workflow.pdf}
     \caption{Integrated array tomography.
     (A) Ultrathin sections are prepared for simultaneous FM and EM imaging.
     (B) An overview image of the sections on the ITO-coated glass slide is then acquired by a digital light microscope (DLM).
@@ -39,7 +39,7 @@ where $w{EM}$ and $w_{FM}$ are the respective EM and FM fields of view, and $o_{
 % ---------------------
 \begin{figure}[!tb]
     \centering
-    \includegraphics[width=0.78\linewidth]{chapter-3/figures_JPEG_LQ/fig3-2_acq-strat.jpg}
+    \includegraphics[width=0.78\linewidth]{chapter-3/figures_PDF/fig3-2_acq-strat.pdf}
     \caption{Integrated array tomography provides efficient, high-precision EM-FM imaging without bleaching of the fluorescence.
     (A) Acquisition of correlative FM (green outline) and low-magnification EM (black outline) images, followed by a registration procedure involving CL spots (grey circles) to register the image pair.
     (B) The stage is translated in a grid-like fashion such that there is sufficient overlap between neighboring FM image tiles—leaving a gap between adjacent EM tiles.
@@ -62,7 +62,7 @@ Overlaying the fluorescence onto the high-magnification EM requires correlating 
 % ---------------------------
 \begin{figure}[!tb]
     \centering
-    \includegraphics[width=\linewidth]{chapter-3/figures_JPEG_LQ/fig3-3_reconstruction.jpg}
+    \includegraphics[width=\linewidth]{chapter-3/figures_PDF/fig3-3_reconstruction.pdf}
     \caption{Correlative alignment routine registers tilesets across modalities and scales.
     (A) Automated registration procedure for registering FM and low-magnification EM image pairs using CL spots. FM tiles are then overlaid onto the low-magnification EM tiles of each section.
     (B) SIFT features (yellow squares) are extracted and used to stitch together neighboring high-magnification EM tiles within each section.
@@ -79,13 +79,13 @@ Next, the low-magnification image tiles are registered to the corresponding area
 % -----
 \subsection{Correlative 3D reconstruction}
 \label{sec:3R_3Dalign}
-A robust and scalable solution is required for volume alignment of the high-magnification EM stack, the ``backbone" of the multimodal dataset. The stitched sections are downsampled and roughly aligned in $z$ (Figure \ref{fig:3.4_3Dalign}A) to facilitate feature mapping between image tiles in adjacent sections. A system of linear equations consisting of SIFT features is then solved to finely align the image stack in 3D (Figure \ref{fig:3.4_3Dalign}B) \cite{khairy2018joint}. The features extracted during stitching are reused, enabling a faster and more efficient reconstruction of the EM volume.
+A robust and scalable solution is required for volume alignment of the high-mag-nification EM stack, the ``backbone" of the multimodal dataset. The stitched sections are downsampled and roughly aligned in $z$ (Figure \ref{fig:3.4_3Dalign}A) to facilitate feature mapping between image tiles in adjacent sections. A system of linear equations consisting of SIFT features is then solved to finely align the image stack in 3D (Figure \ref{fig:3.4_3Dalign}B) \cite{khairy2018joint}. The features extracted during stitching are reused, enabling a faster and more efficient reconstruction of the EM volume.
 
 % Figure 3.4 (3D alignment)
 % -------------------------
 \begin{figure}[!tb]
     \centering
-    \includegraphics[width=\linewidth]{chapter-3/figures_JPEG_LQ/fig3-4_3Dalign.jpg}
+    \includegraphics[width=\linewidth]{chapter-3/figures_PDF/fig3-4_3Dalign.pdf}
     \caption{Volume reconstruction of the high-magnification EM stack.
     (A) SIFT features (yellow squares) are used to roughly align the high-magnification EM stack in $z$. A downsampled image of each section is rendered as the full resolution EM tileset is too large (several GB) for feature extraction.
     (B) The EM stack alignment is refined by least squares optimization of the displacement between matched features.}
@@ -98,12 +98,12 @@ The 2D correlative alignment procedure (Figure \ref{fig:3.3_reconstruction}) is 
 % -------------------------
 \begin{figure}[!tb]
     \centering
-    \includegraphics[width=\linewidth]{chapter-3/figures_JPEG_LQ/fig3-5_rat.jpg}
+    \includegraphics[width=\linewidth]{chapter-3/figures_PDF/fig3-5_rat.pdf}
     \caption{Correlative reconstruction of nine sections of pancreas.
     (A) 2D and 3D alignment routines are combined to yield a CLEM stack of nine serial sections of rat pancreas tissue.
     (B\,--\,D) CLEM imaging of the islet of Langerhans at varying spatial resolution. Hoechst (blue) and AF594 (orange) fluorescence signals are superimposed onto the EM ultrastructure. The AF594 signal, in particular, facilitates recognition of insulin granules from e.g. non-fluorescent glucagon granules (white arrows, D).
     Scale bars: (B) \SI{50}{\micro\meter}; (C) \SI{5}{\micro\meter}; (D) \SI{1}{\micro\meter}.
-    Raw data at full resolution is available via Nanotomy.}
+    Raw data at full resolution is available via \href{www.nanotomy.org}{Nanotomy}.}
     \label{fig:3.5_ratpancreas}
 \end{figure}
 
@@ -120,7 +120,7 @@ To demonstrate the scalability of the workflow, we applied it to a larger volume
 % ------------------------
 \begin{figure}[!tb]
     \centering
-    \includegraphics[width=\linewidth]{chapter-3/figures_JPEG_LQ/fig3-6_zebrafish.jpg}
+    \includegraphics[width=\linewidth]{chapter-3/figures_PDF/fig3-6_zebrafish.pdf}
     \caption{Integrated correlative array tomography applied to 63 serial sections of zebrafish pancreas.
     (A) Contrast-enhanced optical image of an individual serial section obtained by the DLM. The section was re-acquired post-EM imaging, revealing the region of interest irradiated by the electron beam. The biological material can be seen in pale blue in contrast with the bare EPON (brown background).
     (B) Hoechst signal of an individual serial section, outlining (white) the portion of the tissue shown in (C).
@@ -128,7 +128,7 @@ To demonstrate the scalability of the workflow, we applied it to a larger volume
     (D) 3D sub-stack of muscle tissue within the zebrafish pancreas. Green lines indicate orthoslices of the $XY$, $XZ$, and $YZ$ planes shown in (E).
     (F) Zoomed-in region of the $XY$ plane showing high-precision FM overlay of Hoechst onto a cell nucleus. (G\,--\,I) Same as in (D\,--\,F), but for an islet of Langerhans. Ill-defined cell and organelle membranes in (H) and (I) indicate suboptimal preservation of the ultrastructure in this region of the pancreas.
     Scale bars: (A, B) \SI{100}{\micro\meter}; (E, H) \SI{10}{\micro\meter}; (F, I) \SI{1}{\micro\meter}.
-    Raw data at full resolution is available via Nanotomy.}
+    Raw data at full resolution is available via \href{www.nanotomy.org}{Nanotomy}.}
     \label{fig:3.6_zfpancreas}
 \end{figure}
 
