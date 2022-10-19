@@ -10,5 +10,5 @@ Life (BBoL) program of the Netherlands Organization for Scientific
 Research (NWO), with cash and in-kind contributions from Delmic
 B.V. and Genentech.
 
-#### Citation (APA)
+#### Citation (MLA)
 > Lane, R. "Integrated Array Tomography: Development and Applications of a Workflow for 3D Correlative Light and Electron Microscopy." (2022).
