@@ -11,5 +11,4 @@ Research (NWO), with cash and in-kind contributions from Delmic
 B.V. and Genentech.
 
 #### Citation (APA)
-> Lane, R. (2022). _Integrated Array Tomography: Development and Applications of a Workflow for 3D
-Correlative Light and Electron Microscopy_. https://doi.org/10.4233/uuid:951afaeb-1f03-45cb-8a86-cacbf9ca0f64
+> Lane, R. "Integrated Array Tomography: Development and Applications of a Workflow for 3D Correlative Light and Electron Microscopy." (2022).
